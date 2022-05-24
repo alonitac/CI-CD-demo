@@ -12,7 +12,7 @@ pipeline {
         when { branch "main" }
         steps {
             sh '''
-            echo "running..."
+            echo "running"
             '''
         }
     }
