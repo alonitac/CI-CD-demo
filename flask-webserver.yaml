@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-webserver
-          image: public.ecr.aws/r7m7o9d4/flask-server:latest
+          image: public.ecr.aws/r7m7o9d4/{{IMG_NAME}}
 ---
 apiVersion: v1
 kind: Service
