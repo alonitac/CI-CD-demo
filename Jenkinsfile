@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    REGISTRY_URL = 'public.ecr.aws/r7m7o9d4'
+    REGISTRY_URL = '352708296901.dkr.ecr.eu-north-1.amazonaws.com'
     K8S_CLUSTER_NAME = 'ci-cd-demo-k8s'
     K8S_CLUSTER_REGION = 'eu-north-1'
   }
@@ -13,7 +13,7 @@ pipeline {
         steps {
             sh '''
             IMAGE="flask-server:0.0.${BUILD_NUMBER}"
-            aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin  ${REGISTRY_URL}
+            aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin ${REGISTRY_URL}
             docker build -t ${IMAGE} .
             docker tag ${IMAGE} ${REGISTRY_URL}/${IMAGE}
             docker push ${REGISTRY_URL}/${IMAGE}
